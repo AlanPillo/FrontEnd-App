@@ -16,7 +16,7 @@ const Dashboard = () => {
       <AppBar position="static" color="default" elevation={1} sx={{ borderBottom: '1px solid #e0e0e0' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Typography variant="h6" color="inherit" noWrap>
-            🦷 Dashboard del Dentista
+            🦷 Dashboard
           </Typography>
           <Button variant="outlined" color="error" onClick={handleLogout}>
             Cerrar Sesión
