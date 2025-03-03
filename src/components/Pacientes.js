@@ -91,7 +91,7 @@ const Pacientes = () => {
   const handleEliminarCita = async (id) => {
     if (window.confirm("¿Estás seguro de eliminar la cita?")) {
       try {
-        await api.delete(`/citas/${id}`);
+        await api.delete(`/api/citas/${id}`);
         showSnackbar('Cita eliminada correctamente', 'success');
         cargarPacientes();
       } catch (err) {
@@ -107,7 +107,7 @@ const Pacientes = () => {
     try {
       const asistio = value === "true";
       // Se actualiza la asistencia y se cierra la cita (estado = 'cerrado')
-      await api.put(`/citas/${citaId}/asistencia`, { asistio });
+      await api.put(`/api/citas/${citaId}/asistencia`, { asistio });
       showSnackbar("Asistencia actualizada", "success");
       cargarPacientes();
     } catch (error) {
@@ -119,7 +119,7 @@ const Pacientes = () => {
   // Al hacer clic en "Ver Histórico", se consulta el historial completo (citas cerradas) del paciente
   const handleOpenHistory = async (paciente) => {
     try {
-      const result = await api.get(`/citas/historial/${paciente.id}`);
+      const result = await api.get(`/api/citas/historial/${paciente.id}`);
       setSelectedPatient(paciente);
       setSelectedCitas(result.data);
       setOpenHistory(true);
@@ -237,7 +237,7 @@ const Pacientes = () => {
                         paciente.citas.map((cita) => (
                           <Box key={cita.id} display="flex" alignItems="center" gap={1} mb={1}>
                             <Typography variant="body2">
-                              📅 {cita.fecha.split('T')[0]} - ⏰ {cita.hora}
+                              {cita.fecha.split('T')[0]}-{cita.hora.substring(0, 5)}hs
                             </Typography>
                             <Button
                               variant="outlined"
