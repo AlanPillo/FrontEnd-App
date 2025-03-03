@@ -40,7 +40,7 @@ const Login = () => {
 
     try {
       console.log("🟡 Enviando login:", form);
-      const response = await api.post('/login', form);
+      const response = await api.post('/api/login', form);
       console.log("✅ Respuesta del servidor:", response.data);
       localStorage.setItem('token', response.data.token);
       showSnackbar('Inicio de sesión exitoso', 'success');
