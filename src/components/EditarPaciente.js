@@ -27,7 +27,7 @@ const EditarPaciente = () => {
   useEffect(() => {
     const fetchPaciente = async () => {
       try {
-        const response = await api.get(`/pacientes/${id}`);
+        const response = await api.get(`/api/pacientes/${id}`);
         // Se asume que response.data contiene { nombre, email, telefono }
         setForm(response.data);
       } catch (err) {
