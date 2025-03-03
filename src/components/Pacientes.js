@@ -60,7 +60,7 @@ const Pacientes = () => {
 
   const cargarPacientes = async () => {
     try {
-      const response = await api.get('/pacientes');
+      const response = await api.get('/api/pacientes');
       // Cada paciente tendrá sus citas (se asume que el endpoint retorna citas abiertas)
       const pacientesFormateados = response.data.map((paciente) => ({
         ...paciente,
