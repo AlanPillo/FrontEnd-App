@@ -65,7 +65,7 @@ const Login = () => {
 
       <Container sx={{ mt: 4 }}>
         <Typography variant="h4" gutterBottom align="center">
-          🔑 Iniciar Sesión
+          Iniciar Sesión
         </Typography>
         {error && (
           <Typography color="error" align="center" sx={{ mb: 2 }}>
