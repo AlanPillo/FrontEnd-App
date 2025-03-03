@@ -55,7 +55,7 @@ const EditarPaciente = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.put(`/pacientes/${id}`, form);
+      await api.put(`/api/pacientes/${id}`, form);
       showSnackbar('Paciente actualizado', 'success');
       navigate('/pacientes');
     } catch (err) {
