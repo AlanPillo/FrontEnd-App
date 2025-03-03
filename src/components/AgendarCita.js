@@ -44,7 +44,7 @@ const AgendarCita = () => {
     }
 
     try {
-      await api.post('/citas', { paciente_id: id, ...form });
+      await api.post('/api/citas', { paciente_id: id, ...form });
       alert('Cita agendada con éxito');
       navigate('/pacientes');
     } catch (err) {
