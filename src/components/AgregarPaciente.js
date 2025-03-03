@@ -38,7 +38,7 @@ const AgregarPaciente = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await api.post('/pacientes', form);
+      await api.post('/api/pacientes', form);
       showSnackbar('Paciente agregado exitosamente', 'success');
       navigate('/pacientes');
     } catch (error) {
