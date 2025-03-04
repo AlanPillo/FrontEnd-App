@@ -1,3 +1,4 @@
+// src/components/OwnerLogin.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
@@ -15,7 +16,7 @@ import {
   Fade
 } from '@mui/material';
 
-const Login = () => {
+const OwnerLogin = () => {
   const [form, setForm] = useState({ nombre: '', password: '' });
   const [error, setError] = useState(null);
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
@@ -39,14 +40,11 @@ const Login = () => {
     setError(null);
     setLoading(true);
     try {
-      // Solo para Cliente, usamos el endpoint /api/login
-      const response = await api.post('/api/login', { nombre: form.nombre, password: form.password });
+      const response = await api.post('/api/owner/login', { nombre: form.nombre, password: form.password });
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem('userName', form.nombre);
-      // Se establece el rol Cliente en el localStorage para el ProtectedRoute
-      localStorage.setItem('role', 'cliente');
+      localStorage.setItem('role', 'owner');
       showSnackbar('Inicio de sesión exitoso', 'success');
-      setTimeout(() => navigate('/pacientes'), 500);
+      setTimeout(() => navigate('/owner/dashboard'), 500);
     } catch (err) {
       setError('Credenciales incorrectas');
       showSnackbar('Credenciales incorrectas', 'error');
@@ -59,13 +57,13 @@ const Login = () => {
     <>
       <AppBar position="static" color="default" sx={{ borderBottom: '1px solid #e0e0e0' }}>
         <Toolbar sx={{ justifyContent: 'center' }}>
-          <Typography variant="h6" color="inherit">Sistema</Typography>
+          <Typography variant="h6" color="inherit">Owner Login</Typography>
         </Toolbar>
       </AppBar>
       <Container sx={{ mt: 4 }}>
         <Fade in timeout={600}>
           <Typography variant="h4" gutterBottom align="center">
-           Iniciar Sesión
+            🔑 Iniciar Sesión (Owner)
           </Typography>
         </Fade>
         {error && (
@@ -132,4 +130,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default OwnerLogin;

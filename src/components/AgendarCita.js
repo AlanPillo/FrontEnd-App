@@ -15,7 +15,7 @@ import {
   CardContent,
   CardActions
 } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 const AgendarCita = () => {
   const { id } = useParams();
