@@ -63,7 +63,7 @@ const OwnerLogin = () => {
       <Container sx={{ mt: 4 }}>
         <Fade in timeout={600}>
           <Typography variant="h4" gutterBottom align="center">
-            🔑 Iniciar Sesión (Owner)
+            Iniciar Sesión (Owner)
           </Typography>
         </Fade>
         {error && (
